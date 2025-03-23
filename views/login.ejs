@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <%- include('cdn.ejs') %>  <!-- Include Bootstrap -->
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5 col-lg-4">
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <h3 class="text-center">Login</h3>
+                        <hr>
+
+                        <form action="/logindata" method="post">
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Enter Your Email</label>
+                                <input type="email" name="useremail" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Enter Your Password</label>
+                                <input type="password" name="userpassword" class="form-control" required>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+
+                        </form>
+
+                        <div class="text-center mt-3">
+                            <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

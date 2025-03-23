@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <%- include('cdn.ejs') %> <!-- Include Bootstrap -->
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .edit-profile-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="edit-profile-container">
+            <h2 class="text-center text-primary">Edit Profile</h2>
+            <hr>
+
+            <form action="/updateform" method="post" enctype="multipart/form-data">
+                
+                <div class="mb-3">
+                    <label class="form-label">ID</label>
+                    <input type="text" readonly class="form-control" value="<%- data.twit_id %>" name="twit_id">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Update Name</label>
+                    <input type="text" class="form-control" name="username" value="<%- data.username %>">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" readonly name="useremail" value="<%- data.useremail %>">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Update Number</label>
+                    <input type="number" class="form-control" name="usermobile" value="<%- data.usernumber %>">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Update Profile Picture</label>
+                    <input type="file" class="form-control" name="image" accept="image/*">
+                </div>
+
+                <div class="text-center">
+                    <img src="/uploads/<%- data.image %>" height="150px" class="rounded-circle shadow-sm" alt="Profile Picture">
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-success w-100">Update Profile</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profile</title>
+    <%- include('cdn.ejs') %>  <!-- Include Bootstrap and other dependencies -->
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+        }
+        .profile-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-image: linear-gradient(red,white,red);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            font-style: italic;
+            font-family:'Times New Roman', Times, serif;
+            background-image: linear-gradient(grey,white,grey);
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 70%;
+            border: 3px solid #ddd;
+            background-color: rgb(104, 103, 103);
+        }
+        .profile-info {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .profile-stats {
+            display: flex;
+            justify-content: space-between;
+            max-width: 300px;
+        }
+        .profile-actions {
+            margin-top: 10px;
+        }
+        .btn-custom {
+            border-radius: 20px;
+            font-size: 14px;
+            padding: 5px 15px;
+        }
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .post-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .story-highlights {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .story {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #ff8500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .story img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <!-- Profile Header -->
+         <div class="profile-container">
+        <div class="profile-header">
+            <img src="/uploads/<%= data[0].image %>" class="profile-pic" alt="Profile Picture">
+            <div class="profile-info">
+                <h3><%= data[0].twit_id %></h3>
+                <h2 class="text-dark">Name: <strong class="text-danger"><%= data[0].username %></strong></h2>
+                <p class="text-muted">Email: <%= data[0].useremail %></p>
+                <p><strong>Phone:</strong> <%= data[0].usermobile %></p>
+                <div class="profile-stats">
+                    <p><strong>54</strong> Posts</p>
+                    <p><strong>1.2K</strong> Followers</p>
+                    <p><strong>789</strong> Following</p>
+                </div>
+                <div class="profile-actions">
+                    <a href="/edit/<%= data[0].twit_id %>" class="btn btn-success btn-sm btn-custom">Edit Profile</a>
+                    <a href="/delete/<%= data[0].twit_id %>" class="btn btn-danger btn-sm btn-custom">Delete Account</a>
+                    <a href="/logout" class="btn btn-danger btn-sm btn-custom">Log Out</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Story Highlights -->
+        <div class="story-highlights">
+            <div class="story"><img src="/uploads/story1.jpg" alt="Story 1"></div>
+            <div class="story"><img src="/uploads/story2.jpg" alt="Story 2"></div>
+            <div class="story"><img src="/uploads/story3.jpg" alt="Story 3"></div>
+            <div class="story"><img src="/uploads/story4.jpg" alt="Story 4"></div>
+        </div>
+
+        <!-- Posts Grid -->
+        <div class="post-grid">
+            <img src="/uploads/post1.jpg" alt="Post 1">
+            <img src="/uploads/post2.jpg" alt="Post 2">
+            <img src="/uploads/post3.jpg" alt="Post 3">
+            <img src="/uploads/post4.jpg" alt="Post 4">
+            <img src="/uploads/post5.jpg" alt="Post 5">
+            <img src="/uploads/post6.jpg" alt="Post 6">
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>
